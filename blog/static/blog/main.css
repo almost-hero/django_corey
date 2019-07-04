@@ -8,9 +8,27 @@ body {
   background: #e9f5f7;
 }
 .my-article {
-  width: 550px;
+  width: 60%;
   background: white;
   margin-top: 10px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.my-form {
+  width: 60%;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+}
+
+.img img{
+  width: 125px;
+  height: 125px;
+}
+
+.post-img {
+  width: 70px;
+  height: 70px;
 }

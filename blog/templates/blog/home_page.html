@@ -7,6 +7,7 @@
 {% block content %}
   {% for post in posts %}
   <article class="media my-article">
+    <img src="{{ post.author.profile.image.url }}" class="rounded-circle post-img mt-3 ml-3" alt="">
     <div class="media-body m-3">
       <div>
         <a class="mr-2" href="#">{{ post.author }}</a>
