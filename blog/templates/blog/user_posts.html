@@ -1,23 +1,24 @@
 {% extends 'blog/base.html' %}
 
 {% block title %}
-  Home Page
+  Post Detail User
 {% endblock %}
 
 {% block content %}
+  <h1>Posts by "{{view.kwargs.username }}" ({{page_obj.paginator.count}})</h1>
   {% for post in posts %}
-  <article class="media my-article">
-    <img src="{{ post.author.profile.image.url }}" class="rounded-circle post-img mt-3 ml-3" alt="">
-    <div class="media-body m-3">
-      <div>
-        <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-        <small class="text-muted">{{ post.date_posted|date:"F d,Y" }}</small>
+    <article class="media my-article">
+      <img src="{{ post.author.profile.image.url }}" class="rounded-circle post-img mt-3 ml-3" alt="">
+      <div class="media-body m-3">
+        <div>
+          <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+          <small class="text-muted">{{ post.date_posted|date:"F d,Y" }}</small>
+        </div>
+        <hr class="mt-2 mb-2">
+        <h2><a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a></h2>
+        <p>{{ post.content| truncatechars:65 }}</p>
       </div>
-      <hr class="mt-2 mb-2">
-      <h2><a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a></h2>
-      <p>{{ post.content| truncatechars:65 }}</p>
-    </div>
-  </article>
+    </article>
   {% endfor %}
   {% if is_paginated %}
 
@@ -40,6 +41,4 @@
     {% endif %}
 
   {% endif %}
-
-
 {% endblock %}
